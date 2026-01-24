@@ -10,18 +10,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout repo
+      # 1️⃣ Checkout repository
       - uses: actions/checkout@v4
 
       # 2️⃣ Sync LeetCode solutions
       - name: Sync
         uses: joshcai/leetcode-sync@v1.7
         with:
-          github-token: ${{ secrets.GH_PAT }}               # Use your PAT
+          github-token: ${{ secrets.GH_PAT }}              # Use PAT
           leetcode-csrf-token: ${{ secrets.LEETCODE_CSRF_TOKEN }}
           leetcode-session: ${{ secrets.LEETCODE_SESSION }}
           destination-folder: solutions
-          branch: leetcode-sync                             # Push to separate branch
+          branch: leetcode-sync                            # Push to separate branch
           verbose: true
         env:
           DEBUG: true
+
+      # 3️⃣ (Optional) Create Pull Request automatically
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GH_PAT }}
+          branch: leetcode-sync
+          title: "Sync LeetCode solutions"
+          body: "Automatic sync from LeetCode"
