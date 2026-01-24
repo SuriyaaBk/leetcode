@@ -1,13 +1,19 @@
 name: Sync LeetCode to GitHub
+
 on:
   workflow_dispatch:
   schedule:
     - cron: '0 0 * * *'
 
+permissions:
+  contents: write   # 🔑 THIS FIXES THE ERROR
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+
       - name: Sync
         uses: joshcai/leetcode-sync@v1.7
         with:
@@ -15,5 +21,4 @@ jobs:
           leetcode-csrf-token: ${{ secrets.LEETCODE_CSRF_TOKEN }}
           leetcode-session: ${{ secrets.LEETCODE_SESSION }}
           destination-folder: solutions
-          # This helps organize by language if needed
           verbose: true
