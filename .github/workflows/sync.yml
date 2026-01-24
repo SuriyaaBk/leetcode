@@ -1,24 +1,28 @@
 name: Sync LeetCode to GitHub
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:   # manual trigger
   schedule:
-    - cron: '0 0 * * *'
-
-permissions:
-  contents: write   # 🔑 THIS FIXES THE ERROR
+    - cron: '0 0 * * *'  # daily at midnight UTC
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
 
-      - name: Sync
+    steps:
+      # 1️⃣ Checkout repo
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # 2️⃣ Sync LeetCode solutions
+      - name: Sync LeetCode Solutions
         uses: joshcai/leetcode-sync@v1.7
         with:
-          github-token: ${{ github.token }}
+          github-token: ${{ secrets.GH_PAT }}        # Use PAT with repo scope
           leetcode-csrf-token: ${{ secrets.LEETCODE_CSRF_TOKEN }}
           leetcode-session: ${{ secrets.LEETCODE_SESSION }}
           destination-folder: solutions
+          branch: leetcode-sync                       # Pushes to a separate branch
           verbose: true
+        env:
+          DEBUG: true   # Optional: shows detailed logs
