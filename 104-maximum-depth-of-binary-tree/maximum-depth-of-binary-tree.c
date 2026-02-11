@@ -6,12 +6,9 @@
  *     struct TreeNode *right;
  * };
  */
-int dfs(struct TreeNode* root) {
-    if(root == NULL) return 0;
-    int l = dfs(root -> left);
-    int r = dfs(root -> right);
-    return (l > r ? l : r) + 1;
-}
 int maxDepth(struct TreeNode* root) {
-    return dfs(root);
+    if(root == NULL) return 0;
+    int l = maxDepth(root -> left);
+    int r = maxDepth(root -> right);
+    return (l > r ? l : r) + 1;
 }
