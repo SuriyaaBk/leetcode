@@ -13,7 +13,7 @@ void calculate(struct TreeNode* root) {
     if(value < min1) {
         min2 = min1;
         min1 = value; 
-    } else if(value < min2 && value > min1) min2 = value;
+    } else if(value < min2 && value != min1) min2 = value;
     calculate(root -> left);
     calculate(root -> right);
 }
