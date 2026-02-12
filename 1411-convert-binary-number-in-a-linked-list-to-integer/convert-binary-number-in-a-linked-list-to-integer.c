@@ -5,7 +5,8 @@
  *     struct ListNode *next;
  * };
  */
-int maxBit(struct ListNode* head, int n) {
+int maxBit(struct ListNode* head) {
+    int n = 1;
     if(head == NULL) return n;
     while(head -> next != NULL) {
         n *= 2;
@@ -14,8 +15,8 @@ int maxBit(struct ListNode* head, int n) {
     return n;
 }
 int getDecimalValue(struct ListNode* head) {
-    int ans = 0, n = 1;
-    n = maxBit(head, n);
+    int n, ans = 0;
+    n = maxBit(head);
     while(head != NULL) {
         ans += head -> val * n;
         head = head -> next;
