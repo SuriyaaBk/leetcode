@@ -6,14 +6,18 @@
  *     struct TreeNode *right;
  * };
  */
-int inorder(struct TreeNode* root, int *k) {
-    if(root == NULL) return -1;
-    int l = inorder(root -> left, k);
-    if(*k == 0) return l;
-    (*k)--;
-    if(*k == 0) return root -> val;
-    return inorder(root -> right, k);
+int n, ans;
+void inorder(struct TreeNode* root) {
+    if(root == NULL) return;
+    inorder(root -> left);
+    if(--n == 0) {
+        ans = root -> val;
+        return;
+    }
+    inorder(root -> right);
 }
 int kthSmallest(struct TreeNode* root, int k) {
-    return inorder(root, &k);
+    n = k;
+    inorder(root);
+    return ans;
 }
