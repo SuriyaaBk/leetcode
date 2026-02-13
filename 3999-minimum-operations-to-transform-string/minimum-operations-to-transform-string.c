@@ -1,7 +1,11 @@
 int minOperations(char* s) {
     int ans = 0;
+    int* hash = (int*)malloc(26 * sizeof(int));
     for(int i = 0; s[i]; i++) {
-        ans = fmax(ans, (26 - (s[i] - 'a')) % 26);
+        hash[s[i] - 'a'] = 1;
     }
-    return ans;
+    for(int i = 1; i < 26; i++) {
+        if(hash[i] == 1) return (26 - i) % 26;
+    }
+    return 0;
 }
