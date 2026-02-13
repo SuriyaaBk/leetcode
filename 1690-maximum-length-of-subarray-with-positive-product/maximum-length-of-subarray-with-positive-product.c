@@ -8,12 +8,17 @@ int getMaxLen(int* nums, int numsSize) {
             if(f == 1) {
                 p1 += p2 + n;
                 p2 = n = f = 0;
+                ans = fmax(ans, p1);
             } else f = 1;
         } else {
-            if(f == 0) p1 += 1;
-            else p2 += 1;
+            if(f == 0) {
+                p1 += 1;
+                ans = fmax(ans, p1);
+            } else {
+                p2 += 1;
+                ans = fmax(ans, p2);
+            }
         }
-        ans = fmax(ans, fmax(p1, p2));
     }
     p1 = 0, p2 = 0, n = 0, f = 0;
     for(int i = numsSize - 1; i >= 0; i--) {
@@ -24,12 +29,17 @@ int getMaxLen(int* nums, int numsSize) {
             if(f == 1) {
                 p1 += p2 + n;
                 p2 = n = f = 0;
+                ans = fmax(ans, p1);
             } else f = 1;
         } else {
-            if(f == 0) p1 += 1;
-            else p2 += 1;
+            if(f == 0) {
+                p1 += 1;
+                ans = fmax(ans, p1);
+            } else {
+                p2 += 1;
+                ans = fmax(ans, p2);
+            }
         }
-        ans = fmax(ans, fmax(p1, p2));
     }
     return ans;
 }
