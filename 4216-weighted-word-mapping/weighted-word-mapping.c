@@ -5,7 +5,7 @@ char* mapWordWeights(char** words, int wordsSize, int* weights, int weightsSize)
         for(int j = 0; words[i][j]; j++) {
             sum += weights[words[i][j] - 'a'];
         }
-        ans[i] = 25 - sum % 26 + 'a';
+        ans[i] = 'z' - sum % 26;
     }
     ans[wordsSize] = '\0';
     return ans;
