@@ -6,8 +6,8 @@ int* findOriginalArray(int* changed, int changedSize, int* returnSize) {
     for(int i = 0; i <= 100000; i++) {
         while(hash[i] > 0 && hash[2 * i] >= hash[i]) {
             ans[j++] = i;
-            hash[i]--;
-            hash[2*i]--;
+            hash[i] -= 1;
+            hash[2*i] -= 1;
         }
         if(hash[i] != 0) {
             free(hash);
