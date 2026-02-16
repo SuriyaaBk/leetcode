@@ -1,9 +1,10 @@
 char* smallestPalindrome(char* s) {
-    int n, j = 0;
+    int n;
     int* hash = (int*)calloc(26, sizeof(int));
     for(n = 0; s[n]; n++) {
         hash[s[n] - 'a'] += 1;
     }
+    int l = 0, r = n - 1;
     char* ans = (char*)malloc((n + 1) * sizeof(char));
     for(int i = 0; i < 26; i++) {
         if(hash[i] & 1 == 1) {
@@ -11,9 +12,8 @@ char* smallestPalindrome(char* s) {
             hash[i] -= 1;
         }
         while(hash[i] > 0) {
-            ans[j] = 'a' + i;
-            ans[n - j - 1] = 'a' + i;
-            j += 1;
+            ans[l++] = 'a' + i;
+            ans[r--] = 'a' + i;
             hash[i] -= 2;
         }
     }
