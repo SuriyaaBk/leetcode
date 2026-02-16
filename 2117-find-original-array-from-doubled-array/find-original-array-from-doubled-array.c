@@ -8,10 +8,12 @@ int* findOriginalArray(int* changed, int changedSize, int* returnSize) {
         hash[changed[i]] += 1;
     }
     for(int i = min; i <= max; i++) {
-        while(hash[i] > 0 && hash[2 * i] >= hash[i]) {
-            ans[j++] = i;
-            hash[i] -= 1;
-            hash[2*i] -= 1;
+        if(hash[i] > 0 && hash[2 * i] >= hash[i]) {
+            while(hash[i] > 0) {
+                ans[j++] = i;
+                hash[i] -= 1;
+                hash[2*i] -= 1;
+            }
         }
         if(hash[i] != 0) {
             free(hash);
