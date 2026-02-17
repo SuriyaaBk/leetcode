@@ -8,9 +8,8 @@ bool hasIncreasingSubarrays(int* nums, int numsSize, int k) {
             }
         }
         if(flag == true) {
-            for(int j = i + k; j < i + 
-            2 * k - 1; j++) {
-                if(nums[j] >= nums[j+ 1]) {
+            for(int j = i + k; j < i + 2 * k - 1; j++) {
+                if(nums[j] >= nums[j + 1]) {
                     flag = false;
                     break;
                 }
