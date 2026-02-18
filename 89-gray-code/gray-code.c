@@ -1,6 +1,4 @@
-int gray(int n) { 
-    return n ^ (n >> 1);
-}
+#define gray(n) (n ^ (n >> 1));
 int* grayCode(int n, int* returnSize) {
     n = 1 << n; //squaring n;
     int* ans=(int*)malloc(n * sizeof(int));
