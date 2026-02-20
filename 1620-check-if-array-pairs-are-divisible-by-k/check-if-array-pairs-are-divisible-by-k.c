@@ -1,8 +1,7 @@
 bool canArrange(int* arr, int arrSize, int k) {
     int* hash = (int*)calloc(k, sizeof(int));
     for(int i = 0; i < arrSize; i++) {
-        int rem = arr[i] % k;
-        if(rem < 0) rem += k;
+        int rem = (arr[i] % k + k) % k;
         hash[rem] += 1;
     }
     if(hash[0] % 2 != 0) return false;
