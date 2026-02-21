@@ -1,10 +1,6 @@
 int isPrime(int n) {
-    if(n <= 1) return 0;
-    if(n != 2 && n % 2 == 0) return 0;
-    for(int i = 3; i*i <= n; i+=2) {
-        if(n % i == 0) return 0;
-    } 
-    return 1;
+    if(n == 2 || n == 3 || n == 5 || n == 7 || n == 11 || n == 13 || n == 17 || n == 19) return 1;
+    return 0;
 }
 int CountOnes(int n) {
     int x = 0;
