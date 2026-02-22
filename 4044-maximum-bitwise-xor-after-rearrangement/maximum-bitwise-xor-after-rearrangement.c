@@ -10,16 +10,12 @@ char* maximumXor(char* s, char* t) {
             if(ones > 0) {
                 ans[i] = '1';
                 ones--;
-            } else {
-                ans[i] = '0';
-            }
+            } else ans[i] = '0';
         } else {
             if(zeros > 0) {
                 ans[i] = '1';
                 zeros--;
-            } else {
-                ans[i] = '0';
-            }
+            } else ans[i] = '0';
         }
     }
     ans[n] = '\0';
