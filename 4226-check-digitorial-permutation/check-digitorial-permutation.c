@@ -1,13 +1,10 @@
-int fact(int n) {
-    if(n == 0 || n == 1) return 1;
-    return n * fact(n - 1);
-}
 bool isDigitorialPermutation(int n) {
     int fact_sum = 0;
+    int fact[10] = {1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880};
     int* hash1 = (int*)calloc(10, sizeof(int));
     int* hash2 = (int*)calloc(10, sizeof(int));
     while(n > 0) {
-        fact_sum += fact(n % 10);
+        fact_sum += fact[n % 10];
         hash1[n % 10]++;
         n /= 10;
     }
