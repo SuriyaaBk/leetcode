@@ -1,5 +1,5 @@
 int compare(const void* a, const void* b) {
-    return *(int*)a > *(int*)b;
+    return *(int*)a < *(int*)b;
 }
 int kthSmallest(int** matrix, int matrixSize, int* matrixColSize, int k) {
     int t = 0, n = matrixSize;
@@ -10,5 +10,5 @@ int kthSmallest(int** matrix, int matrixSize, int* matrixColSize, int k) {
         }
     }
     qsort(nums, t, sizeof(int), compare);
-    return nums[k - 1];
+    return nums[t - k];
 }
