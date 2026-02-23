@@ -10,7 +10,5 @@ int kthSmallest(int** matrix, int matrixSize, int* matrixColSize, int k) {
         }
     }
     qsort(nums, t, sizeof(int), compare);
-    int ans = nums[k - 1];
-    free(nums);
-    return ans;
+    return nums[k - 1];
 }
