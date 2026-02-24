@@ -9,5 +9,5 @@ int minimumSize(int* nums, int numsSize, int maxOperations) {
         if(c > maxOperations) l = m + 1;
         else r = m;
     }
-    return l                            ;
+    return l;
 }
