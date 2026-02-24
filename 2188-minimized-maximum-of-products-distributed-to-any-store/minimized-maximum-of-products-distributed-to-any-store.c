@@ -1,5 +1,6 @@
 int minimizedMaximum(int n, int* quantities, int quantitiesSize) {
-    int l = 1, r = 100000;
+    int l = 1, r = quantities[0];
+    for(int i = 1; i < quantitiesSize; i++) r = fmax(r, quantities[i]);
     while(l < r) {
         int m = (l + r) / 2, c = 0;
         for(int i = 0; i < quantitiesSize; i++) {
