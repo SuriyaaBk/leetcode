@@ -8,7 +8,7 @@
  */
 int dfs(struct TreeNode* root, int sum) {
     if(root == NULL) return 0;
-    sum = (sum << 1) + root -> val;
+    sum = (sum << 1) + root -> val; // mul by 2
     if(root -> left == NULL && root -> right == NULL) return sum;
     return dfs(root -> left, sum) + dfs(root -> right, sum);
 }
