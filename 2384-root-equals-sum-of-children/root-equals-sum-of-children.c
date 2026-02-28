@@ -12,8 +12,6 @@ bool checkTree(struct TreeNode* root) {
     while(root -> left != NULL) {
         root = root -> left;
         sum2 += root -> val;
-    }
-    while(root2 -> right != NULL) {
         root2 = root2 -> right;
         sum2 += root2 -> val;
     }
