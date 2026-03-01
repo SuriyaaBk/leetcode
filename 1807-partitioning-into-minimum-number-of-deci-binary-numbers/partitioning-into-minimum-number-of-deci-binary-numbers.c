@@ -3,6 +3,7 @@ int minPartitions(char* n) {
     for(int i = 0; n[i] != '\0'; i++) {
         int num = n[i] - '0';
         ans = fmax(ans, num);
+        if(ans == 9) return ans;
     }
     return ans;
 }
