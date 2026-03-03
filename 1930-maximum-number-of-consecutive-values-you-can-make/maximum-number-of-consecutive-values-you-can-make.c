@@ -1,11 +1,13 @@
-int compare(const void* a, const void* b) {
-    return *(int*)a > *(int*)b;
-}
 int getMaximumConsecutive(int* coins, int coinsSize) {
-    qsort(coins, coinsSize, sizeof(int), compare);
     int ans = 1;
-    for(int i = 0; i < coinsSize && ans >= coins[i]; i++) {
-        ans += coins[i];
+    int* hash = (int*)calloc(40001, sizeof(int));
+    for(int i = 0; i < coinsSize; i++) hash[coins[i]]++;
+    for(int i = 1; i <= 40000; i++) {
+        if(hash[i] > 0) {
+            if(ans < i) break;
+            else ans += hash[i] * i;
+        }
     }
+    free(hash);
     return ans;
 }
