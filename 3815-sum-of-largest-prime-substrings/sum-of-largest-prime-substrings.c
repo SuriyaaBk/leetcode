@@ -18,7 +18,7 @@ long long sumOfLargestPrimes(char* s) {
         }
     }
     long long max1 = 0, max2 = 0, max3 = 0;
-    for(int i = 0; i < k; i++) {
+    for(int i = 0; i < a; i++) {
         if(hash[i] > max1) {
             max3 = max2;
             max2 = max1;
