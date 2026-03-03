@@ -7,13 +7,13 @@ bool isPrime(long long n) {
     return true;
 }
 long long sumOfLargestPrimes(char* s) {
-    int c = 1, k = 0;
-    long long* hash = (long long*)calloc(55, sizeof(long long));
-    for(int i = 0; s[i]; i++) {
+    int a = 0, c = 1, m = strlen(s), k = m * (m + 1) / 2;
+    long long* hash = (long long*)malloc(k * sizeof(long long));
+    for(int i = 0; i < m; i++) {
         long long n = 0;
-        for(int j = i; s[j]; j++) {
+        for(int j = i; j < m; j++) {
             n += (s[j] - '0');
-            if(isPrime(n)) hash[k++] = n;
+            if(isPrime(n)) hash[a++] = n;
             n *= 10;
         }
     }
