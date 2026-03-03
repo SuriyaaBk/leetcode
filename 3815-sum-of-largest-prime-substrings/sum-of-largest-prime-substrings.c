@@ -8,7 +8,6 @@ bool isPrime(long long n) {
 }
 long long sumOfLargestPrimes(char* s) {
     int c = 1, k = 0;
-    long long ans = 0;
     long long* hash = (long long*)calloc(55, sizeof(long long));
     for(int i = 0; s[i]; i++) {
         long long n = 0;
@@ -29,6 +28,5 @@ long long sumOfLargestPrimes(char* s) {
             max2 = hash[i];
         }else if(hash[i] > max3 && hash[i] != max2 && hash[i] != max1) max3 = hash[i];
     }
-    ans = max1 + max2 + max3;
-    return ans;
+    return max1 + max2 + max3;
 }
