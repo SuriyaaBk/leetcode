@@ -1,6 +1,3 @@
-int compare(const void* a, const void* b) {
-    return *(long long*)b > *(long long*)a;
-}
 bool isPrime(long long n) {
     if(n <= 1) return false;
     if(n != 2 && n % 2 == 0) return false;
@@ -21,14 +18,17 @@ long long sumOfLargestPrimes(char* s) {
             n *= 10;
         }
     }
-    if(k == 0) return 0;
-    qsort(hash, k, sizeof(long long), compare);
-    ans += hash[0];
-    for(int i = 1; i < k && c < 3; i++) {
-        if(hash[i] != hash[i - 1]) {
-            ans += hash[i];
-            c++;
-        }
+    long long max1 = 0, max2 = 0, max3 = 0;
+    for(int i = 0; i < k; i++) {
+        if(hash[i] > max1) {
+            max3 = max2;
+            max2 = max1;
+            max1 = hash[i];
+        }else if(hash[i] > max2 && hash[i] != max1) {
+            max3 = max2;
+            max2 = hash[i];
+        }else if(hash[i] > max3 && hash[i] != max2 && hash[i] != max1) max3 = hash[i];
     }
+    ans = max1 + max2 + max3;
     return ans;
 }
