@@ -3,5 +3,5 @@ int minOperations(char* s) {
     for(n = 0; s[n] != '\0'; n++, j ^= 1) {
         if(s[n] - '0' == j) c++;
     }
-    return c < n - c ? c : n - c;
+    return fmin(c, n - c);
 }
