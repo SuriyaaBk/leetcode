@@ -2,12 +2,7 @@ int minOperations(char* s) {
     int isSorted = 1, min_ind = 0, max_ind = 0, n;
     char min = s[0], max = s[0];
     for(n = 1; s[n]; n++) {
-        if(s[n] < s[n - 1]) {
-            isSorted = 0;
-            break;
-        }
-    }
-    for(n = 1; s[n]; n++) {
+        if(s[n] < s[n - 1]) isSorted = 0;
         if(s[n] < min) {
             min = s[n];
             min_ind = n;
