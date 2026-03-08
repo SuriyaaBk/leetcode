@@ -13,7 +13,7 @@ int minOperations(char* s) {
     }
     if(isSorted == 1) return 0;
     if(n == 2) return -1;
+    if(min_ind == 0 || max_ind == n - 1) return 1;
     if(min_ind == n - 1 && max_ind == 0) return 3;
-    if(min_ind != 0 && max_ind != n - 1) return 2;
-    return 1; // if(min_ind == 0 || max_ind == n - 1) 
+    return 2; // if(min_ind != 0 && max_ind != n - 1)
 }
