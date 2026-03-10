@@ -10,8 +10,7 @@ int** modifiedMatrix(int** matrix, int matrixSize, int* matrixColSize, int* retu
             if(matrix[i][j] == -1) matrix[i][j] = max;
             (*returnColumnSizes)[i] = m;
         }
-    }    
-
+    }
     *returnSize = n;
     return matrix;
 }
