@@ -18,6 +18,5 @@ int minimizeSum(int* nums, int numsSize) {
             min2 = nums[i];
         } else if(nums[i] < min3) min3 = nums[i];
     }
-    printf("%d %d %d %d %d %d", max1, max2, max3, min1, min2, min3);
     return fmin(max2 - min2, fmin(max1 - min3, max3 - min1));
 }
