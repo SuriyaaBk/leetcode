@@ -3,5 +3,5 @@ int percentageLetter(char* s, char letter) {
     for(n = 0; s[n]; n++) {
         if(s[n] == letter) c++;
     }
-    return c * 100 / n;
+    return  100 * c / n;
 }
