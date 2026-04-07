@@ -7,10 +7,7 @@ int** findWinners(int** matches, int matchesSize, int* matchesColSize, int* retu
     int* wins = (int*)malloc(100001 * sizeof(int));
     int* loss = (int*)malloc(100001 * sizeof(int));
     int** ans = (int**)calloc(2, sizeof(int*));
-    for(int i = 0; i < 100001; i++) {
-        wins[i] = 0;
-        loss[i] = 0;
-    }
+    for(int i = 0; i < 100001; i++) wins[i] = loss[i] = 0;
     for(int i = 0; i < matchesSize; i++) {
         wins[matches[i][0]]++;
         loss[matches[i][1]]++;
