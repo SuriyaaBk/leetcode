@@ -1,9 +1,10 @@
 int maxRepeating(char* sequence, char* word) {
-    int ans = 0, c = 0, a = strlen(sequence), b = strlen(word), n = a - b;
-    for(int i = 0; i <= n; i++) {
-        while(strncmp(&sequence[i + c * b], word, b) == 0) c++;
-        if(c > ans) ans = c;
-        c = 0;
+    int ans = 0;
+    char temp[201] = "";
+    while(true) {
+        strcat(temp, word);
+        if(strstr(sequence, temp)) ans++;
+        else break;
     }
     return ans;
 }
