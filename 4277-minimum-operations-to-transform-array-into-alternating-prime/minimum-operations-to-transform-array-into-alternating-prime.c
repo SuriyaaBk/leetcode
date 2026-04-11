@@ -7,14 +7,10 @@ int minOperations(int* nums, int numsSize) {
             for(long j = i*i; j <= 100003; j+=i) prime[j] = 1;
         }
     }
-    for(int i = 0; i < numsSize; i+=2) {
+    for(int i = 0; i < numsSize; i++) {
         int n = nums[i], m = n;
-        while(prime[m] == 1) m++;
-        ans += m - n;
-    }
-    for(int i = 1; i < numsSize; i+=2) {
-        int n = nums[i], m = n;
-        while(prime[m] == 0) m++;
+        if(i & 1) while(prime[m] == 0) m++;
+        else while(prime[m] == 1) m++;
         ans += m - n;
     }
     free(prime);
