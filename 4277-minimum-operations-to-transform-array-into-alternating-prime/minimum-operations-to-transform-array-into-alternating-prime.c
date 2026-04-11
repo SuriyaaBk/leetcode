@@ -8,10 +8,10 @@ int minOperations(int* nums, int numsSize) {
         }
     }
     for(int i = 0; i < numsSize; i++) {
-        int n = nums[i], m = n;
-        if(i & 1) while(prime[m] == 0) m++;
-        else while(prime[m] == 1) m++;
-        ans += m - n;
+        int n = nums[i];
+        if(i & 1) while(prime[n] == 0) n++;
+        else while(prime[n] == 1) n++;
+        ans += n - nums[i];
     }
     free(prime);
     return ans;
