@@ -13,18 +13,14 @@ int minOperations(int* nums, int numsSize) {
         prime[i] = c;
     }
     for(int i = 0; i < numsSize; i+=2) {
-        int n = nums[i];
-        while(prime[n] == 0) {
-            n++;
-            ans++;
-        }
+        int n = nums[i], m = n;
+        while(prime[m] == 0) m++;
+        ans += m - n;
     }
     for(int i = 1; i < numsSize; i+=2) {
-        int n = nums[i];
-        while(prime[n] == 1) {
-            n++;
-            ans++;
-        }
+        int n = nums[i], m = n;
+        while(prime[m] == 1) m++;
+        ans += m - n;
     }
     free(prime);
     return ans;
