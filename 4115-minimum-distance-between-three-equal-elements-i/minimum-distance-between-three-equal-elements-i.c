@@ -1,16 +1,13 @@
-#define MIN(a,b) (a < b ? a : b)
 int minimumDistance(int* nums, int numsSize) {
     int ans = INT_MAX;
-    for(int i = 0; i < numsSize - 2; i++) {
-        for(int j = i + 1; j < numsSize - 1; j++) {
-            if(nums[j] != nums[i]) continue;
-            for(int k = j + 1; k < numsSize; k++) {
-                if(nums[j] == nums[k]) {
-                    ans = MIN(ans , (j - i) + (k - j) + (k - i));
-                }
-            }
-        }
+    int hash[101][3];
+    for(int i = 0; i <= 100; i++) hash[i][2] = hash[i][1] = hash[i][0] = -1;
+    for(int i = 0; i < numsSize; i++) {
+        int n = nums[i];
+        hash[n][2] = hash[n][1];
+        hash[n][1] = hash[n][0];
+        hash[n][0] = i;
+        if(hash[n][2] != -1) ans = fmin(ans, 2 * (hash[n][0] - hash[n][2]));
     }
-    if(ans == INT_MAX) return -1;
-    return ans;
+    return ans == INT_MAX ? -1 : ans;
 }
