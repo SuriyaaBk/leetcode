@@ -1,4 +1,7 @@
 int isPrime(int n) {
+    if(n == 1) return 0;
+    if(n == 2) return 1;
+    if(n % 2 == 0) return 0;
     for(int i = 3; i*i <= n; i+=2) {
         if(n % i == 0) return 0;
     }
@@ -6,19 +9,14 @@ int isPrime(int n) {
 }
 int minOperations(int* nums, int numsSize) {
     int ans = 0;
-    int* prime = (int*)calloc(100004, sizeof(int));
-    prime[2] = 1;
-    for(int i = 3; i <= 100003; i+= 2) prime[i] = isPrime(i);
-    for(int i = 0; i < numsSize; i+=2) {
+    for(int i = 0; i < numsSize; i++) {
         int n = nums[i], m = n;
-        while(prime[m] == 0) m++;
+        if(i & 1) {
+            while(isPrime(m)) m++; 
+        } else {
+            while(!(isPrime(m))) m++;
+        }
         ans += m - n;
     }
-    for(int i = 1; i < numsSize; i+=2) {
-        int n = nums[i], m = n;
-        while(prime[m] == 1) m++;
-        ans += m - n;
-    }
-    free(prime);
     return ans;
 }
