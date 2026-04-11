@@ -1,6 +1,5 @@
 int minimumDistance(int* nums, int numsSize) {
-    int ans = INT_MAX;
-    int hash[101][3];
+    int ans = INT_MAX, hash[101][3];
     for(int i = 0; i <= 100; i++) hash[i][2] = hash[i][1] = hash[i][0] = -1;
     for(int i = 0; i < numsSize; i++) {
         int n = nums[i];
