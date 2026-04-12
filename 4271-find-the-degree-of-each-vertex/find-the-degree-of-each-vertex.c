@@ -1,6 +1,3 @@
-/**
- * Note: The returned array must be malloced, assume caller calls free().
- */
 int* findDegrees(int** matrix, int matrixSize, int* matrixColSize, int* returnSize) {
     int* ans = (int*)malloc(matrixSize * sizeof(int));
     for(int i = 0; i < matrixSize; i++) {
@@ -11,5 +8,5 @@ int* findDegrees(int** matrix, int matrixSize, int* matrixColSize, int* returnSi
         ans[i] = sum;
     }
     *returnSize = matrixSize;
-    return ans;
+    return ans; 
 }
