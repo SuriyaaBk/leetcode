@@ -8,7 +8,7 @@ int maxTurbulenceSize(int* arr, int arrSize) {
             dec = inc + 1;
             inc = 1;
         } else inc = dec = 1;
-        ans = fmax(ans, fmax(inc, dec));
+        ans = fmax(ans, inc + dec - 1);
     }
     return ans;
 }
