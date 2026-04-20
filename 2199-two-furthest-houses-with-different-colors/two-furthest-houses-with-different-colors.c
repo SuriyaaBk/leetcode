@@ -1,6 +1,6 @@
-int maxDistance(int* colors, int colorsSize) {
-    int l = 0, r = colorsSize - 1;
-    while(colors[r] == colors[l]) l++;
+int maxDistance(int* colors, int n) {
+    int l = 0, r = n - 1;
+    while(colors[n - 1] == colors[l]) l++;
     while(colors[0] == colors[r]) r--;
-    return fmax(colorsSize - 1 - l, r);
+    return fmax(n - 1 - l, r);
 }
