@@ -12,5 +12,5 @@ char* capitalizeTitle(char* title) {
     }
     if(j - i > 2 && title[i] >= 'a') title[i] -= 32;
     else if(title[i] <= 'Z') title[i] += 32;
-    return title; 
+    return title;
 }
