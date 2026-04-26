@@ -2,10 +2,6 @@
  * Note: The returned array must be malloced, assume caller calls free().
  */
 int* findValidElements(int* nums, int numsSize, int* returnSize) {
-    if(numsSize == 1) {
-        *returnSize = 1;
-        return nums;
-    }
     int* right = (int*)malloc(numsSize * sizeof(int));
     int* ans = (int*)malloc(numsSize * sizeof(int));
     int left = nums[0], ind = 0, n = numsSize - 1;
@@ -15,7 +11,7 @@ int* findValidElements(int* nums, int numsSize, int* returnSize) {
         if(nums[i] > left || nums[i] > right[i+1]) ans[++ind] = nums[i];
         left = fmax(left, nums[i]);
     }
-    ans[++ind] = nums[n];
+    if(numsSize != 1) ans[++ind] = nums[n];
     free(right);
     *returnSize = ind + 1;
     return ans;
