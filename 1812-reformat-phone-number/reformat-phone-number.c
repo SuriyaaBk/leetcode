@@ -9,7 +9,8 @@ char* reformatNumber(char* number) {
             }
             ans[j++] = number[i];
             c++;
-        } i++;
+        } 
+        i++;
     }
     if(ans[j - 2] == '-') {
         ans[j - 2] = ans[j - 3];
