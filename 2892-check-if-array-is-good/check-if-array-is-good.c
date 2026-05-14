@@ -1,10 +1,10 @@
-int compare(const void* a, const void* b) {
-    return *(int*)a - *(int*)b;
-}
 bool isGood(int* nums, int numsSize) {
-    qsort(nums, numsSize, sizeof(int), compare);
+    if(numsSize == 1) return false;
+    int* hash = (int*)calloc(200, sizeof(int));
+    for(int i = 0; i < numsSize; i++) hash[nums[i] - 1]++;
+    hash[numsSize - 2]--;
     for(int i = 0; i < numsSize - 1; i++) {
-        if(nums[i] != i + 1) return false;
+        if(hash[i] != 1) return false;
     }
-    return nums[numsSize - 1] == numsSize - 1;
+    return true;
 }
