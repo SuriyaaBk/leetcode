@@ -1,7 +1,7 @@
 bool isMiddleElementUnique(int* nums, int numsSize) {
-    int n = numsSize / 2, x = nums[n];
+    int c = 0, n = nums[numsSize / 2];
     for(int i = 0; i < numsSize; i++) {
-        if(nums[i] == x && i != n) return false;
+        if(nums[i] == n) c++;
     }
-    return true;
+    return c == 1;
 }
