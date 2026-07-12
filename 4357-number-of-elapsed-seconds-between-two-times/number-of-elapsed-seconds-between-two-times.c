@@ -7,6 +7,5 @@ int seconds(char* a) {
 int secondsBetweenTimes(char* startTime, char* endTime) {
     int end = seconds(endTime);
     int start = seconds(startTime);
-    if(end < start) end += 86400; // one day has 24 * 60 * 60 seconds
     return end - start;
 }
