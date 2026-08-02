@@ -5,7 +5,7 @@ int countRatioSubarrays(int* nums, int numsSize, int a, int b) {
         for(int j = i; j < numsSize; j++) {
             if(nums[j] & 1) y++;
             else x++;
-            if(y > 0 && x * b <= y * a) ans++;
+            if(x * b <= y * a) ans++;
         }
     }
     return ans;
