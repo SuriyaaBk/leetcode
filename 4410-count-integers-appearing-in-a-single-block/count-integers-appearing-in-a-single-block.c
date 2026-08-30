@@ -11,5 +11,6 @@ int countSpecialIntegers(int* nums, int numsSize) {
     for(int i = 0; i <= 100; i++) {
         if(hash[i] == 1) ans += 1;
     }
+    free(hash);
     return ans;
 }
