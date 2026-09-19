@@ -33,7 +33,7 @@
 <div class="example-block">
 <p><strong>Input:</strong> <span class="example-io">nums = [8,8,8,8]</span></p>
 
-<p><strong>Output:</strong>&nbsp;0</p>
+<p><strong>Output:</strong> <span class="example-io">0</span></p>
 
 <p><strong>Explanation:</strong></p>
 
