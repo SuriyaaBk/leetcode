@@ -1,6 +1,3 @@
-/**
- * Note: The returned array must be malloced, assume caller calls free().
- */
 int* maxProductPair(int* nums, int numsSize, int target, int* returnSize) {
     int max_pro = INT_MIN;
     int* ans = (int*)malloc(2 * sizeof(int));
