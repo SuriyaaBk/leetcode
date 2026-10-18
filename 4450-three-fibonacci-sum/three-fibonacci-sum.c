@@ -3,7 +3,7 @@ bool threeFibonacciSum(int n) {
     while(a + b + c < n) {
         a = b;
         b = c;
-        c = a + c;
+        c = a + b;
     }
     return a + b + c == n;
 }
