@@ -4,6 +4,6 @@ int numOfSubarrays(int* arr, int arrSize) {
         sum += arr[i];
         ans += (sum & 1);
     }
-    ans += ((long long) (arrSize - ans) * ans) % 1000000007;
+    ans += ((long) (arrSize - ans) * ans) % 1000000007;
     return ans;
 }
